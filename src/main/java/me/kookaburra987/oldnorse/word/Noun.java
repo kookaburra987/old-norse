@@ -1,9 +1,13 @@
 package me.kookaburra987.oldnorse.word;
 
 import lombok.Getter;
+import me.kookaburra987.oldnorse.Case;
 import me.kookaburra987.oldnorse.DeclensionType;
 import me.kookaburra987.oldnorse.Gender;
+import me.kookaburra987.oldnorse.Number;
+import me.kookaburra987.oldnorse.utils.NounEndingMapper;
 
+import static me.kookaburra987.oldnorse.DeclensionType.WEAK;
 import static me.kookaburra987.oldnorse.utils.Assert.notNull;
 
 /**
@@ -33,15 +37,22 @@ public final class Noun extends Word{
 
     /**
      * Determines the stem of the Noun.
-     * If the word is not masculine then it will be the latinNotation,
-     * otherwise it will be the latinNotation without the last character.
+     * It is the latinNotation without the last character.
      * @return the stem of the word
      */
     public String stem() {
         String latinNotation = getLatinNotation();
-        if (!gender.equals(Gender.M)){
-            return latinNotation;
-        }
         return latinNotation.substring(0, latinNotation.length() - 1);
+    }
+
+    public String decline(Case c, Number number){
+        notNull(c, "case is null");
+        notNull(number, "number is null");
+
+        if (declensionType.equals(WEAK)){
+            String ending = NounEndingMapper.endingOfWeakNoun(c, gender, number);
+            return stem() + ending;
+        }
+        return null;
     }
 }

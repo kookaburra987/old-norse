@@ -24,15 +24,15 @@ class NounStemTest {
 
         String stem = noun.stem();
 
-        assertEquals("Helga", stem);
+        assertEquals("Helg", stem);
     }
 
     @Test
     void givenNeuterWordReturnsStem(){
-        Noun noun = new Noun("skip", N, WEAK);
+        Noun noun = new Noun("auga", N, WEAK);
 
         String stem = noun.stem();
 
-        assertEquals("skip", stem);
+        assertEquals("aug", stem);
     }
 }
