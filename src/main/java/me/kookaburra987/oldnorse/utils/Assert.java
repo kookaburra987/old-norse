@@ -1,8 +1,5 @@
 package me.kookaburra987.oldnorse.utils;
 
-import me.kookaburra987.oldnorse.Gender;
-import org.apache.commons.lang3.StringUtils;
-
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.apache.commons.lang3.StringUtils.length;
 

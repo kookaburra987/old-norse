@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 class NounConstructorTest {
 
     @Test
-    void givenValidParametersShouldConstructNoun(){
+    void givenValidParametersConstructsNoun(){
         Noun noun = new Noun("Bárðr", M, STRONG);
 
         assertNotNull(noun);
