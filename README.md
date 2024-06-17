@@ -7,11 +7,11 @@ This is a java library for the Old Norse (ON) language.
 ### Nouns
 * create a noun with gender, declensionType and latinNotation
 * determine the stem of a noun
+* decline weak nouns
 
 ## Future Functionalities
 
 ### Nouns
-* decline weak masculine nouns
-* decline weak feminine nouns
 * decline strong masculine nouns
 * decline strong feminine nouns
+* decline strong neuter nouns
