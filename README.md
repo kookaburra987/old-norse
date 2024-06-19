@@ -18,10 +18,22 @@ This is a java library for the Old Norse (ON) language.
 
 ## Future Functionalities
 
+### Exercise
+* export exercise of conjugating weak nouns based on their preposition
+
 ### Nouns
+* list of weak nouns
+* list of strong nouns
 * decline strong masculine nouns
 * decline strong feminine nouns
 * decline strong neuter nouns
 
 ### Prepositions
 * Two-way prepositions (case changes depending on meaning)
+
+### Numerals
+* list of numerals
+
+### Concatenation of words
+* concat numeral with noun and put noun in correct number based on the numeral
+* concat preposition with noun and noun with numeral
