@@ -3,6 +3,7 @@ package me.kookaburra987.oldnorse.utils;
 import java.util.Collection;
 
 import static org.apache.commons.collections4.CollectionUtils.isEmpty;
+import static org.apache.commons.lang3.ArrayUtils.isEmpty;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.apache.commons.lang3.StringUtils.length;
 
@@ -31,6 +32,12 @@ public final class Assert {
 
     public static void notEmpty(Collection<?> collection, String message) {
         if(isEmpty(collection)){
+            throw new IllegalArgumentException(message);
+        }
+    }
+
+    public static void notEmpty(Object[] objects, String message) {
+        if(isEmpty(objects)){
             throw new IllegalArgumentException(message);
         }
     }

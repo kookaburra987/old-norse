@@ -9,6 +9,10 @@ This is a java library for the Old Norse (ON) language.
 * determine the stem of a noun
 * decline weak nouns
 
+### Prepositions
+* default list of prepositions
+* return case of prepositions governing one case
+
 ## Future Functionalities
 
 ### Nouns
@@ -17,8 +21,5 @@ This is a java library for the Old Norse (ON) language.
 * decline strong neuter nouns
 
 ### Prepositions
-* return case of prepositions governing one case
-* list of prepositions with translations
-* translate a preposition
 * decline noun based on preposition
 * decline pronouns based on preposition
