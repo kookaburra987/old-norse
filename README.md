@@ -13,6 +13,9 @@ This is a java library for the Old Norse (ON) language.
 * default list of prepositions
 * return case of prepositions governing one case
 
+### Concatenation of words
+* decline noun based on preposition
+
 ## Future Functionalities
 
 ### Nouns
@@ -21,5 +24,4 @@ This is a java library for the Old Norse (ON) language.
 * decline strong neuter nouns
 
 ### Prepositions
-* decline noun based on preposition
-* decline pronouns based on preposition
+* Two-way prepositions (case changes depending on meaning)
