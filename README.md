@@ -15,3 +15,10 @@ This is a java library for the Old Norse (ON) language.
 * decline strong masculine nouns
 * decline strong feminine nouns
 * decline strong neuter nouns
+
+### Prepositions
+* return case of prepositions governing one case
+* list of prepositions with translations
+* translate a preposition
+* decline noun based on preposition
+* decline pronouns based on preposition
