@@ -14,7 +14,7 @@ public abstract class Word {
         notBlank(latinNotation, "latinNotation is blank");
         size(latinNotation, 1, 64, "latinNotation has invalid size");
 
-        this.latinNotation = latinNotation;
+        this.latinNotation = latinNotation.trim();
     }
 
 }

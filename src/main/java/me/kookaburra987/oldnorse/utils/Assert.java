@@ -1,5 +1,8 @@
 package me.kookaburra987.oldnorse.utils;
 
+import java.util.Collection;
+
+import static org.apache.commons.collections4.CollectionUtils.isEmpty;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.apache.commons.lang3.StringUtils.length;
 
@@ -22,6 +25,12 @@ public final class Assert {
 
     public static void notNull(Object value, String message) {
         if (value == null){
+            throw new IllegalArgumentException(message);
+        }
+    }
+
+    public static void notEmpty(Collection<?> collection, String message) {
+        if(isEmpty(collection)){
             throw new IllegalArgumentException(message);
         }
     }
