@@ -4,6 +4,9 @@ This is a java library for the Old Norse (ON) language.
 
 ## Supported Functionalities
 
+### Definite Article
+* decline definite article
+
 ### Nouns
 * create a noun with gender, declensionType and latinNotation
 * determine the stem of a noun
@@ -37,3 +40,5 @@ This is a java library for the Old Norse (ON) language.
 ### Concatenation of words
 * concat numeral with noun and put noun in correct number based on the numeral
 * concat preposition with noun and noun with numeral
+* concat definite article to noun
+* concat definite article with noun with adjective
