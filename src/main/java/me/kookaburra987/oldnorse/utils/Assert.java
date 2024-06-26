@@ -30,6 +30,12 @@ public final class Assert {
         }
     }
 
+    public static void isFalse(boolean condition, String message){
+        if (condition){
+            throw new IllegalArgumentException(message);
+        }
+    }
+
     public static void notEmpty(Collection<?> collection, String message) {
         if(isEmpty(collection)){
             throw new IllegalArgumentException(message);

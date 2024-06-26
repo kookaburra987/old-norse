@@ -12,6 +12,10 @@ This is a java library for the Old Norse (ON) language.
 * determine the stem of a noun
 * decline weak nouns
 
+### Personal Pronouns
+* create personal pronouns
+* pool of personal pronouns to pick from
+
 ### Prepositions
 * default list of prepositions
 * return case of prepositions governing one case
@@ -31,6 +35,11 @@ This is a java library for the Old Norse (ON) language.
 * decline strong feminine nouns
 * decline strong neuter nouns
 
+### Personal Pronouns
+* decline personal pronouns
+* support fo dual number (Example: vit)
+* support for alternative spellings
+
 ### Prepositions
 * Two-way prepositions (case changes depending on meaning)
 
@@ -42,3 +51,4 @@ This is a java library for the Old Norse (ON) language.
 * concat preposition with noun and noun with numeral
 * concat definite article to noun
 * concat definite article with noun with adjective
+* concat a name with a personal pronoun (Example: vit Haraldr, meaning: We two, Harald and I)
