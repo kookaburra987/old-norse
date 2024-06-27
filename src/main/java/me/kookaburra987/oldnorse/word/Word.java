@@ -5,6 +5,10 @@ import lombok.Getter;
 import static me.kookaburra987.oldnorse.utils.Assert.notBlank;
 import static me.kookaburra987.oldnorse.utils.Assert.size;
 
+/**
+ * A Word is an old icelandic norse (ON) word it its non-declines, non-conjugated form.
+ * It is represented by its latin notation (not runes).
+ */
 @Getter
 public abstract class Word {
 

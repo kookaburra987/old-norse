@@ -22,6 +22,15 @@ public final class PersonalPronounPool {
     private PersonalPronounPool() {
     }
 
+    /**
+     * Method to fetch the {@link PersonalPronoun} from the pool that matches with the given {@link java.lang.Number},
+     * {@link Person} and {@link Gender}.
+     * @param number required
+     * @param person required
+     * @param gender only required if person is THIRD
+     * @return the {@link PersonalPronoun} that matches the number, person and gender
+     * @throws IllegalArgumentException if number or person is null, or gender is null for THIRD person
+     */
     public static PersonalPronoun returnPersonalPronoun(Number number, Person person, Gender gender){
         notNull(number, "number is null");
         notNull(person, "person is null");
