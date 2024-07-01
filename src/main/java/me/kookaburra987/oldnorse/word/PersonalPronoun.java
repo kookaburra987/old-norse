@@ -5,9 +5,11 @@ import me.kookaburra987.oldnorse.Number;
 
 import java.util.Objects;
 
+import static me.kookaburra987.oldnorse.Number.DUAL;
+import static me.kookaburra987.oldnorse.Number.PL;
 import static me.kookaburra987.oldnorse.utils.Assert.isFalse;
 import static me.kookaburra987.oldnorse.utils.Assert.notNull;
-import static me.kookaburra987.oldnorse.word.Person.THIRD;
+import static me.kookaburra987.oldnorse.word.Person.*;
 
 /**
  * Personal Pronouns are words that stand in for a noun.
@@ -35,15 +37,31 @@ public final class PersonalPronoun extends Word {
         notNull(number, "number is null");
         notNull(number, "person is null");
         isFalse(person.equals(THIRD) && gender == null, "gender is required when 3rd person is used");
+        isFalse(number.equals(DUAL) && person.equals(THIRD), "dual number not allowed for 3rd person");
 
-        if (number.isMultiple()){
+        if (number.equals(PL)){
             return determineLatinNotationForPl(person, gender);
+        }
+        if (number.equals(DUAL)){
+            return determineLatinNotationForDual(person);
         }
         return determineLatinNotationForSg(person, gender);
     }
 
+    private static String determineLatinNotationForDual(Person person) {
+        notNull(person, "person is null");
+
+        if (person.equals(FIRST)){
+            return "vit";
+        }
+        if (person.equals(SECOND)){
+            return "þit";
+        }
+        return null;
+    }
+
     private static String determineLatinNotationForPl(Person person, Gender gender) {
-        if (person.equals(Person.FIRST)){
+        if (person.equals(FIRST)){
             return "vér";
         }
         if (person.equals(Person.SECOND)){
@@ -64,7 +82,7 @@ public final class PersonalPronoun extends Word {
     }
 
     private static String determineLatinNotationForSg(Person person, Gender gender) {
-        if (person.equals(Person.FIRST)){
+        if (person.equals(FIRST)){
             return "ek";
         }
         if (person.equals(Person.SECOND)){

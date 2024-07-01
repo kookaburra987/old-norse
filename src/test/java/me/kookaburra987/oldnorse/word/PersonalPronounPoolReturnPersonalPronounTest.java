@@ -1,12 +1,13 @@
 package me.kookaburra987.oldnorse.word;
 
-import org.junit.jupiter.api.Assertions;
+import me.kookaburra987.oldnorse.Gender;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EnumSource;
 
 import static me.kookaburra987.oldnorse.Gender.*;
-import static me.kookaburra987.oldnorse.Number.PL;
-import static me.kookaburra987.oldnorse.Number.SG;
+import static me.kookaburra987.oldnorse.Number.*;
 import static me.kookaburra987.oldnorse.word.Person.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -190,6 +191,75 @@ class PersonalPronounPoolReturnPersonalPronounTest {
         assertTrue(pp.hasGender(N));
         assertTrue(pp.hasNumber(PL));
         assertTrue(pp.hasPerson(THIRD));
+    }
+
+    @Test
+    void shouldReturnCorrectPersonalPronounForFirstPersonDualGenderF(){
+        PersonalPronoun pp = PersonalPronounPool.returnPersonalPronoun(DUAL, FIRST, F);
+
+        assertEquals("vit", pp.getLatinNotation());
+        assertTrue(pp.hasGender(null));
+        assertTrue(pp.hasNumber(DUAL));
+        assertTrue(pp.hasPerson(FIRST));
+    }
+
+    @Test
+    void shouldReturnCorrectPersonalPronounForFirstPersonDualGenderN(){
+        PersonalPronoun pp = PersonalPronounPool.returnPersonalPronoun(DUAL, FIRST, N);
+
+        assertEquals("vit", pp.getLatinNotation());
+        assertTrue(pp.hasGender(null));
+        assertTrue(pp.hasNumber(DUAL));
+        assertTrue(pp.hasPerson(FIRST));
+    }
+
+    @Test
+    void shouldReturnCorrectPersonalPronounForFirstPersonDualGenderM(){
+        PersonalPronoun pp = PersonalPronounPool.returnPersonalPronoun(DUAL, FIRST, M);
+
+        assertEquals("vit", pp.getLatinNotation());
+        assertTrue(pp.hasGender(null));
+        assertTrue(pp.hasNumber(DUAL));
+        assertTrue(pp.hasPerson(FIRST));
+    }
+
+    @Test
+    void shouldReturnCorrectPersonalPronounForSecondPersonDualGenderF(){
+        PersonalPronoun pp = PersonalPronounPool.returnPersonalPronoun(DUAL, SECOND, F);
+
+        assertEquals("þit", pp.getLatinNotation());
+        assertTrue(pp.hasGender(null));
+        assertTrue(pp.hasNumber(DUAL));
+        assertTrue(pp.hasPerson(SECOND));
+    }
+
+    @Test
+    void shouldReturnCorrectPersonalPronounForSecondPersonDualGenderN(){
+        PersonalPronoun pp = PersonalPronounPool.returnPersonalPronoun(DUAL, SECOND, N);
+
+        assertEquals("þit", pp.getLatinNotation());
+        assertTrue(pp.hasGender(null));
+        assertTrue(pp.hasNumber(DUAL));
+        assertTrue(pp.hasPerson(SECOND));
+    }
+
+    @Test
+    void shouldReturnCorrectPersonalPronounForSecondPersonDualGenderM(){
+        PersonalPronoun pp = PersonalPronounPool.returnPersonalPronoun(DUAL, SECOND, M);
+
+        assertEquals("þit", pp.getLatinNotation());
+        assertTrue(pp.hasGender(null));
+        assertTrue(pp.hasNumber(DUAL));
+        assertTrue(pp.hasPerson(SECOND));
+    }
+
+    @ParameterizedTest
+    @EnumSource(Gender.class)
+    void given3rdPersonAndDualShouldThrowException(Gender gender){
+        Executable doReturnPersonalPronoun = () -> PersonalPronounPool.returnPersonalPronoun(DUAL, THIRD, gender);
+
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, doReturnPersonalPronoun);
+        assertEquals("dual number not allowed for 3rd person", e.getMessage());
     }
 
     @Test

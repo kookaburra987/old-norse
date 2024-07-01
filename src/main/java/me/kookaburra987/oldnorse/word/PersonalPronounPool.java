@@ -6,6 +6,7 @@ import me.kookaburra987.oldnorse.Number;
 import java.util.HashSet;
 import java.util.Set;
 
+import static me.kookaburra987.oldnorse.Number.DUAL;
 import static me.kookaburra987.oldnorse.utils.Assert.isFalse;
 import static me.kookaburra987.oldnorse.utils.Assert.notNull;
 import static me.kookaburra987.oldnorse.word.Person.THIRD;
@@ -35,6 +36,8 @@ public final class PersonalPronounPool {
         notNull(number, "number is null");
         notNull(person, "person is null");
         isFalse(person.equals(THIRD) && gender == null, "gender is required when 3rd person is used");
+        isFalse(number.equals(DUAL) && person.equals(THIRD), "dual number not allowed for 3rd person");
+
         if (!person.equals(THIRD)){
             gender = null;
         }
