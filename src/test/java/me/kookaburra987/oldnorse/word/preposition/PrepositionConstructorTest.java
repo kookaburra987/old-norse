@@ -1,5 +1,6 @@
-package me.kookaburra987.oldnorse.word;
+package me.kookaburra987.oldnorse.word.preposition;
 
+import me.kookaburra987.oldnorse.word.Preposition;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 

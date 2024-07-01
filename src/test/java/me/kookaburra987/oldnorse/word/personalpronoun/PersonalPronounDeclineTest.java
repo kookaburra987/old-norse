@@ -1,6 +1,8 @@
-package me.kookaburra987.oldnorse.word;
+package me.kookaburra987.oldnorse.word.personalpronoun;
 
 import me.kookaburra987.oldnorse.Gender;
+import me.kookaburra987.oldnorse.word.PersonalPronoun;
+import me.kookaburra987.oldnorse.word.UnsupportedDeclensionException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
@@ -67,5 +69,5 @@ class PersonalPronounDeclineTest {
 
         assertEquals("case is null", e.getMessage());
     }
-    
+
 }

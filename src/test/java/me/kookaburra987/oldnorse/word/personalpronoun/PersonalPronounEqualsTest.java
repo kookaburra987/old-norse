@@ -1,5 +1,6 @@
-package me.kookaburra987.oldnorse.word;
+package me.kookaburra987.oldnorse.word.personalpronoun;
 
+import me.kookaburra987.oldnorse.word.PersonalPronoun;
 import org.junit.jupiter.api.Test;
 
 import static me.kookaburra987.oldnorse.Gender.F;

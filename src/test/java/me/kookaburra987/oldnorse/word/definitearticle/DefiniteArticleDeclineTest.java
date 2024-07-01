@@ -1,7 +1,8 @@
-package me.kookaburra987.oldnorse.word;
+package me.kookaburra987.oldnorse.word.definitearticle;
 
 import me.kookaburra987.oldnorse.Gender;
 import me.kookaburra987.oldnorse.Number;
+import me.kookaburra987.oldnorse.word.DefiniteArticle;
 import org.junit.jupiter.api.Test;
 
 import static me.kookaburra987.oldnorse.Case.*;

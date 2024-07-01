@@ -1,6 +1,8 @@
-package me.kookaburra987.oldnorse.word;
+package me.kookaburra987.oldnorse.word.personalpronoun;
 
 import me.kookaburra987.oldnorse.Gender;
+import me.kookaburra987.oldnorse.word.PersonalPronoun;
+import me.kookaburra987.oldnorse.word.PersonalPronounPool;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 import org.junit.jupiter.params.ParameterizedTest;

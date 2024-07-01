@@ -1,6 +1,7 @@
-package me.kookaburra987.oldnorse.word;
+package me.kookaburra987.oldnorse.word.noun;
 
 
+import me.kookaburra987.oldnorse.word.Noun;
 import org.junit.jupiter.api.Test;
 
 import static me.kookaburra987.oldnorse.Case.*;
