@@ -5,8 +5,6 @@ import me.kookaburra987.oldnorse.Gender;
 import me.kookaburra987.oldnorse.Number;
 
 import static me.kookaburra987.oldnorse.Gender.*;
-import static me.kookaburra987.oldnorse.Number.PL;
-import static me.kookaburra987.oldnorse.Number.SG;
 
 /**
  * Class that maps the case, gender and number of a {@link me.kookaburra987.oldnorse.word.Noun} to the ending of it.

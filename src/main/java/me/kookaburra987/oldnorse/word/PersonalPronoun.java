@@ -3,7 +3,6 @@ package me.kookaburra987.oldnorse.word;
 import me.kookaburra987.oldnorse.Case;
 import me.kookaburra987.oldnorse.Gender;
 import me.kookaburra987.oldnorse.Number;
-import me.kookaburra987.oldnorse.utils.Assert;
 
 import java.util.Objects;
 

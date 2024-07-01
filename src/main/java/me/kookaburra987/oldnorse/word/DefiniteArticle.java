@@ -15,6 +15,8 @@ import static me.kookaburra987.oldnorse.utils.Assert.notNull;
  */
 public class DefiniteArticle extends Word {
 
+    public static final String MSG_CASE_NULL = "case is null";
+
     private static DefiniteArticle instance;
 
     private DefiniteArticle() {
@@ -35,7 +37,7 @@ public class DefiniteArticle extends Word {
      * @return declined definite article
      */
     public String decline(Case c, Number number, Gender gender){
-        notNull(c, "case is null");
+        notNull(c, MSG_CASE_NULL);
         notNull(number, "number is null");
         notNull(gender, "gender is null");
 
@@ -58,7 +60,7 @@ public class DefiniteArticle extends Word {
      * @return feminine singular declension of inn
      */
     private String declineFeminineSingular(Case c) {
-        notNull(c, "case is null");
+        notNull(c, MSG_CASE_NULL);
 
         return switch (c) {
             case NOM -> "in";
@@ -74,7 +76,7 @@ public class DefiniteArticle extends Word {
      * @return neuter singular declension of inn
      */
     private String declineNeuterSingular(Case c) {
-        notNull(c, "case is null");
+        notNull(c, MSG_CASE_NULL);
 
         if (c.equals(DAT)){
             return "inu";
