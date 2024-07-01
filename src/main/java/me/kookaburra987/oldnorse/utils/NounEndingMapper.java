@@ -30,13 +30,10 @@ public final class NounEndingMapper {
     }
 
     public static String endingOfNeuterNoun(Case c, Number number) {
-        if (number.equals(SG)){
-            return "a";
-        }
-        if (number.equals(PL)){
+        if (number.isMultiple()){
             return endingOfNeuterPlNoun(c);
         }
-        return null;
+        return "a";
     }
 
     private static String endingOfNeuterPlNoun(Case c) {
@@ -48,13 +45,10 @@ public final class NounEndingMapper {
     }
 
     public static String endingOfFemaleNoun(Case c, Number number) {
-        if (number.equals(SG)){
-            return endingOfFemaleSgNoun(c);
-        }
-        if (number.equals(PL)){
+        if (number.isMultiple()){
             return endingOfFemalePlNoun(c);
         }
-        return null;
+        return endingOfFemaleSgNoun(c);
     }
 
     private static String endingOfFemalePlNoun(Case c) {
@@ -73,13 +67,10 @@ public final class NounEndingMapper {
     }
 
     public static String endingOfMaleNoun(Case c, Number number) {
-        if (number.equals(SG)){
-            return endingOfMaleSgNoun(c);
-        }
-        if (number.equals(PL)){
+        if (number.isMultiple()){
             return endingOfMalePlNoun(c);
         }
-        return null;
+        return endingOfMaleSgNoun(c);
     }
 
     private static String endingOfMalePlNoun(Case c) {

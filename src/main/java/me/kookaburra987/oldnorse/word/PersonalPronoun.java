@@ -36,13 +36,10 @@ public final class PersonalPronoun extends Word {
         notNull(number, "person is null");
         isFalse(person.equals(THIRD) && gender == null, "gender is required when 3rd person is used");
 
-        if (number.equals(Number.SG)){
-            return determineLatinNotationForSg(person, gender);
-        }
-        if (number.equals(Number.PL)){
+        if (number.isMultiple()){
             return determineLatinNotationForPl(person, gender);
         }
-        return null;
+        return determineLatinNotationForSg(person, gender);
     }
 
     private static String determineLatinNotationForPl(Person person, Gender gender) {
