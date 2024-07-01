@@ -93,7 +93,7 @@ public class DefiniteArticle extends Word {
      * @return masculine singular declension of inn
      */
     private String declineMasculineSingular(Case c) {
-        notNull(c, "case is null");
+        notNull(c, MSG_CASE_NULL);
 
         if (c.equals(DAT)){
             return "inum";
@@ -111,7 +111,7 @@ public class DefiniteArticle extends Word {
      * @return plural declension of inn
      */
     private String declinePlural(Case c, Gender gender) {
-        notNull(c, "case is null");
+        notNull(c, MSG_CASE_NULL);
         notNull(gender, "gender is null");
 
         if (c.equals(DAT)){
