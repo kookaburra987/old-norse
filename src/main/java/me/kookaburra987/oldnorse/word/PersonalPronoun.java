@@ -3,11 +3,11 @@ package me.kookaburra987.oldnorse.word;
 import me.kookaburra987.oldnorse.Case;
 import me.kookaburra987.oldnorse.Gender;
 import me.kookaburra987.oldnorse.Number;
+import me.kookaburra987.oldnorse.utils.Assert;
 
 import java.util.Objects;
 
-import static me.kookaburra987.oldnorse.Case.DAT;
-import static me.kookaburra987.oldnorse.Case.NOM;
+import static me.kookaburra987.oldnorse.Case.*;
 import static me.kookaburra987.oldnorse.Number.*;
 import static me.kookaburra987.oldnorse.utils.Assert.isFalse;
 import static me.kookaburra987.oldnorse.utils.Assert.notNull;
@@ -18,6 +18,8 @@ import static me.kookaburra987.oldnorse.word.Person.*;
  * Examples from english: I, you, we, he, she, him, his
  */
 public final class PersonalPronoun extends Word {
+
+    private static final String MSG_CASE_NULL = "case is null";
 
     private final Number number;
 
@@ -127,16 +129,37 @@ public final class PersonalPronoun extends Word {
      * @throws UnsupportedDeclensionException for not supported declensions
      */
     public String decline(Case c) throws UnsupportedDeclensionException {
+        notNull(c, MSG_CASE_NULL);
+        isFalse(person.equals(THIRD) && number.equals(DUAL), "declension not allowed for 3rd person dual");
+
         if (c.equals(NOM)){
             return getLatinNotation();
         }
         if (!number.isMultiple()){
             return declineSg(c);
         }
+        if (number.equals(DUAL)){
+            return declineDual(c);
+        }
         throw new UnsupportedDeclensionException("declension only supported for singular");
     }
 
+    private String declineDual(Case c) {
+        notNull(c, MSG_CASE_NULL);
+        isFalse(person.equals(THIRD), "declension not allowed for 3rd person dual");
+
+        if (c.equals(NOM)){
+            return getLatinNotation();
+        }
+
+        String start = person.equals(FIRST) ? "okk" : "ykk";
+        String ending = c.equals(GEN) ? "ar" : "r";
+        return start + ending;
+    }
+
     private String declineSg(Case c) throws UnsupportedDeclensionException {
+        notNull(c, MSG_CASE_NULL);
+
         if (c.equals(NOM)){
             return getLatinNotation();
         }
