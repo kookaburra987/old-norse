@@ -1,12 +1,14 @@
 package me.kookaburra987.oldnorse.word;
 
+import me.kookaburra987.oldnorse.Case;
 import me.kookaburra987.oldnorse.Gender;
 import me.kookaburra987.oldnorse.Number;
 
 import java.util.Objects;
 
-import static me.kookaburra987.oldnorse.Number.DUAL;
-import static me.kookaburra987.oldnorse.Number.PL;
+import static me.kookaburra987.oldnorse.Case.DAT;
+import static me.kookaburra987.oldnorse.Case.NOM;
+import static me.kookaburra987.oldnorse.Number.*;
 import static me.kookaburra987.oldnorse.utils.Assert.isFalse;
 import static me.kookaburra987.oldnorse.utils.Assert.notNull;
 import static me.kookaburra987.oldnorse.word.Person.*;
@@ -115,6 +117,40 @@ public final class PersonalPronoun extends Word {
             return this.gender == null;
         }
         return this.gender != null && this.gender.equals(gender);
+    }
+
+    /**
+     * Declines the PersonalPronoun.
+     * Supports: all nominative declensions, singular 1st and 2n person declensions
+     * @param c case
+     * @return the declension in latin notation
+     * @throws UnsupportedDeclensionException for not supported declensions
+     */
+    public String decline(Case c) throws UnsupportedDeclensionException {
+        if (c.equals(NOM)){
+            return getLatinNotation();
+        }
+        if (!number.isMultiple()){
+            return declineSg(c);
+        }
+        throw new UnsupportedDeclensionException("declension only supported for singular");
+    }
+
+    private String declineSg(Case c) throws UnsupportedDeclensionException {
+        if (c.equals(NOM)){
+            return getLatinNotation();
+        }
+        if (person.equals(FIRST) || person.equals(SECOND)){
+            String start = person.equals(FIRST) ? "m" : "þ";
+            String ending = switch (c) {
+                case ACC -> "ik";
+                case DAT -> "ér";
+                case GEN -> "ín";
+                default -> "";
+            };
+            return start + ending;
+        }
+        throw new UnsupportedDeclensionException("declension not supported for 3rd person singular");
     }
 
     @Override

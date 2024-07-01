@@ -16,6 +16,7 @@ This is a java library for the Old Norse (ON) language.
 * create personal pronouns
 * support fo dual number (Example: vit)
 * pool of personal pronouns to pick from
+* decline nominative and singular 1st and 2n person personal pronouns
 
 ### Prepositions
 * default list of prepositions
@@ -37,7 +38,7 @@ This is a java library for the Old Norse (ON) language.
 * decline strong neuter nouns
 
 ### Personal Pronouns
-* decline personal pronouns
+* decline all personal pronouns
 * support for alternative spellings
 
 ### Prepositions
