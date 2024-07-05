@@ -1,5 +1,7 @@
 package me.kookaburra987.oldnorse.utils;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Collection;
 
 import static org.apache.commons.collections4.CollectionUtils.isEmpty;
@@ -44,6 +46,12 @@ public final class Assert {
 
     public static void notEmpty(Object[] objects, String message) {
         if(isEmpty(objects)){
+            throw new IllegalArgumentException(message);
+        }
+    }
+
+    public static void notEmpty(String string, String message) {
+        if (StringUtils.isEmpty(string)){
             throw new IllegalArgumentException(message);
         }
     }

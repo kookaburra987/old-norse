@@ -13,7 +13,7 @@ import static me.kookaburra987.oldnorse.utils.Assert.notNull;
  * Old norse has one definite article: inn,
  * which declines for case, number and gender.
  */
-public class DefiniteArticle extends Word {
+public final class DefiniteArticle extends Word {
 
     public static final String MSG_CASE_NULL = "case is null";
 
