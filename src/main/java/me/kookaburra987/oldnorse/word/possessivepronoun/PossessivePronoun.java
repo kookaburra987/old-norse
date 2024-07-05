@@ -22,13 +22,10 @@ import static me.kookaburra987.oldnorse.utils.OldNorseStringUtils.replaceCharIfN
  */
 public final class PossessivePronoun extends Word {
 
-    private Person person;
-
-    private static Map<Person, PossessivePronoun> instances = new EnumMap<Person, PossessivePronoun>(Person.class);
+    private final static Map<Person, PossessivePronoun> instances = new EnumMap<>(Person.class);
 
     private PossessivePronoun(Person person) {
         super(determineLatinNotation(person));
-        this.person = person;
     }
 
     private static String determineLatinNotation(Person person) {

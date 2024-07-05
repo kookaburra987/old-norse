@@ -159,7 +159,7 @@ public final class PersonalPronoun extends Word {
         return start + ending;
     }
 
-    private String declineSg(Case c) throws UnsupportedDeclensionException {
+    private String declineSg(Case c) {
         notNull(c, MSG_CASE_NULL);
 
         if (c.equals(NOM)){
