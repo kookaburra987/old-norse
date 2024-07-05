@@ -1,5 +1,7 @@
 package me.kookaburra987.oldnorse.word;
 
+import me.kookaburra987.oldnorse.word.personalpronoun.PersonalPronoun;
+
 /**
  * Represents the 1st, 2nd or 3rd person of a {@link PersonalPronoun} or other type of word.
  */

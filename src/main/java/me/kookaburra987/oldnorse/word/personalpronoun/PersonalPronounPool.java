@@ -1,7 +1,8 @@
-package me.kookaburra987.oldnorse.word;
+package me.kookaburra987.oldnorse.word.personalpronoun;
 
 import me.kookaburra987.oldnorse.Gender;
 import me.kookaburra987.oldnorse.Number;
+import me.kookaburra987.oldnorse.word.Person;
 
 import java.util.HashSet;
 import java.util.Set;

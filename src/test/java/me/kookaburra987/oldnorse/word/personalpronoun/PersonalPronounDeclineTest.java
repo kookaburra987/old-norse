@@ -1,14 +1,13 @@
 package me.kookaburra987.oldnorse.word.personalpronoun;
 
 import me.kookaburra987.oldnorse.Gender;
-import me.kookaburra987.oldnorse.word.PersonalPronoun;
 import me.kookaburra987.oldnorse.word.UnsupportedDeclensionException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 
 import static me.kookaburra987.oldnorse.Case.*;
-import static me.kookaburra987.oldnorse.Gender.M;
+import static me.kookaburra987.oldnorse.Gender.*;
 import static me.kookaburra987.oldnorse.Number.DUAL;
 import static me.kookaburra987.oldnorse.Number.SG;
 import static me.kookaburra987.oldnorse.word.Person.*;
@@ -59,6 +58,36 @@ class PersonalPronounDeclineTest {
         assertEquals("ykkr", pp.decline(ACC));
         assertEquals("ykkr", pp.decline(DAT));
         assertEquals("ykkar", pp.decline(GEN));
+    }
+
+    @Test
+    void givenSgThirdPersonMasculineThenReturnsDeclension() throws UnsupportedDeclensionException {
+        PersonalPronoun pp = new PersonalPronoun(SG, THIRD, M);
+
+        assertEquals("hann", pp.decline(NOM));
+        assertEquals("hann", pp.decline(ACC));
+        assertEquals("honum", pp.decline(DAT));
+        assertEquals("hans", pp.decline(GEN));
+    }
+
+    @Test
+    void givenSgThirdPersonFeminineThenReturnsDeclension() throws UnsupportedDeclensionException {
+        PersonalPronoun pp = new PersonalPronoun(SG, THIRD, F);
+
+        assertEquals("hon", pp.decline(NOM));
+        assertEquals("hana", pp.decline(ACC));
+        assertEquals("henni", pp.decline(DAT));
+        assertEquals("hennar", pp.decline(GEN));
+    }
+
+    @Test
+    void givenSgThirdPersonNeuterThenReturnsDeclension() throws UnsupportedDeclensionException {
+        PersonalPronoun pp = new PersonalPronoun(SG, THIRD, N);
+
+        assertEquals("þat", pp.decline(NOM));
+        assertEquals("þat", pp.decline(ACC));
+        assertEquals("því", pp.decline(DAT));
+        assertEquals("þess", pp.decline(GEN));
     }
 
     @Test

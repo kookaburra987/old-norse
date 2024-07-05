@@ -1,8 +1,11 @@
-package me.kookaburra987.oldnorse.word;
+package me.kookaburra987.oldnorse.word.personalpronoun;
 
 import me.kookaburra987.oldnorse.Case;
 import me.kookaburra987.oldnorse.Gender;
 import me.kookaburra987.oldnorse.Number;
+import me.kookaburra987.oldnorse.word.Person;
+import me.kookaburra987.oldnorse.word.UnsupportedDeclensionException;
+import me.kookaburra987.oldnorse.word.Word;
 
 import java.util.Objects;
 
@@ -172,7 +175,43 @@ public final class PersonalPronoun extends Word {
             };
             return start + ending;
         }
-        throw new UnsupportedDeclensionException("declension not supported for 3rd person singular");
+
+        return switch (gender) {
+            case M -> declineSg3rdPersonMasculine(c);
+            case F -> declineSg3rdPersonFeminine(c);
+            case N -> declineSg3rdPersonNeuter(c);
+        };
+    }
+
+    private String declineSg3rdPersonNeuter(Case c) {
+        notNull(c, MSG_CASE_NULL);
+
+        return switch (c) {
+            case DAT -> "því";
+            case GEN -> "þess";
+            default -> "þat";
+        };
+    }
+
+    private String declineSg3rdPersonFeminine(Case c) {
+        notNull(c, MSG_CASE_NULL);
+
+        return switch (c) {
+            case NOM -> "hon";
+            case ACC -> "hana";
+            case DAT -> "henni";
+            case GEN -> "hennar";
+        };
+    }
+
+    private String declineSg3rdPersonMasculine(Case c) {
+        notNull(c, MSG_CASE_NULL);
+
+        return switch (c) {
+            case DAT -> "honum";
+            case GEN -> "hans";
+            default -> "hann";
+        };
     }
 
     @Override
