@@ -19,6 +19,9 @@ This is a java library for the Old Norse (ON) language.
 * decline nominative and singular personal pronouns
 * decline dual 1st and 2nd person personal pronouns
 
+### Possessive Pronouns
+* create possessive pronouns (Example: minn)
+
 ### Prepositions
 * default list of prepositions
 * return case of prepositions governing one case
@@ -41,6 +44,9 @@ This is a java library for the Old Norse (ON) language.
 ### Personal Pronouns
 * decline all personal pronouns
 * support for alternative spellings
+
+### Possessive Pronouns
+* decline possessive pronouns
 
 ### Prepositions
 * Two-way prepositions (case changes depending on meaning)
