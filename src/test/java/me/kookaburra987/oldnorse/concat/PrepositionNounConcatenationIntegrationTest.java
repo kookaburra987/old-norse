@@ -2,7 +2,7 @@ package me.kookaburra987.oldnorse.concat;
 
 import me.kookaburra987.oldnorse.DeclensionType;
 import me.kookaburra987.oldnorse.Gender;
-import me.kookaburra987.oldnorse.word.Noun;
+import me.kookaburra987.oldnorse.word.noun.Noun;
 import me.kookaburra987.oldnorse.word.Preposition;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;

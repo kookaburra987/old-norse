@@ -1,6 +1,5 @@
 package me.kookaburra987.oldnorse.word.noun;
 
-import me.kookaburra987.oldnorse.word.Noun;
 import org.junit.jupiter.api.Test;
 
 import static me.kookaburra987.oldnorse.DeclensionType.STRONG;
@@ -12,7 +11,7 @@ class NounStemTest {
 
     @Test
     void givenMasculineWordReturnsStem(){
-        Noun noun = new Noun("Bárðr", M, STRONG, true, false, false);
+        Noun noun = new Noun("Bárðr", M, STRONG, true, null);
 
         String stem = noun.stem();
 
@@ -21,7 +20,7 @@ class NounStemTest {
 
     @Test
     void givenFeminineWordReturnsStem(){
-        Noun noun = new Noun("Helga", F, STRONG, true, false, false);
+        Noun noun = new Noun("Helga", F, STRONG, true, null);
 
         String stem = noun.stem();
 

@@ -3,11 +3,15 @@ package me.kookaburra987.oldnorse.utils;
 import me.kookaburra987.oldnorse.Case;
 import me.kookaburra987.oldnorse.Gender;
 import me.kookaburra987.oldnorse.Number;
+import me.kookaburra987.oldnorse.word.noun.Noun;
+import me.kookaburra987.oldnorse.word.noun.NounIrregularity;
 
 import static me.kookaburra987.oldnorse.Gender.*;
+import static me.kookaburra987.oldnorse.word.noun.NounIrregularity.isUncommonPlNomAcc;
+import static me.kookaburra987.oldnorse.word.noun.NounIrregularity.isUncommonSgGen;
 
 /**
- * Class that maps the case, gender and number of a {@link me.kookaburra987.oldnorse.word.Noun} to the ending of it.
+ * Class that maps the case, gender and number of a {@link Noun} to the ending of it.
  */
 public final class NounEndingMapper {
 
@@ -27,22 +31,22 @@ public final class NounEndingMapper {
         return null;
     }
 
-    public static String endingOfStrongNoun(Case c, Gender gender, Number number, boolean uncommonSgGen, boolean uncommonPlNomAcc) {
+    public static String endingOfStrongNoun(Case c, Gender gender, Number number, NounIrregularity irregularity) {
         if (gender.equals(N)){
             return endingOfStrongNeuterNoun(c, number);
         }
         if (gender.equals(F)){
-            return endingOfStrongFeminineNoun(c, number, uncommonSgGen, uncommonPlNomAcc);
+            return endingOfStrongFeminineNoun(c, number, irregularity);
         }
 
         return null;
     }
 
-    private static String endingOfStrongFeminineNoun(Case c, Number number, boolean uncommonSgGen, boolean uncommonPlNomAcc) {
+    private static String endingOfStrongFeminineNoun(Case c, Number number, NounIrregularity irregularity) {
         if (number.isMultiple()){
-            return endingOfStrongPlFeminineNoun(c, uncommonPlNomAcc);
+            return endingOfStrongPlFeminineNoun(c, isUncommonPlNomAcc(irregularity));
         } else {
-            return endingOfStrongSgFeminineNoun(c, uncommonSgGen);
+            return endingOfStrongSgFeminineNoun(c, isUncommonSgGen(irregularity));
         }
     }
 

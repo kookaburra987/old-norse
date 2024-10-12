@@ -2,7 +2,7 @@ package me.kookaburra987.oldnorse.concat;
 
 import me.kookaburra987.oldnorse.Case;
 import me.kookaburra987.oldnorse.Number;
-import me.kookaburra987.oldnorse.word.Noun;
+import me.kookaburra987.oldnorse.word.noun.Noun;
 import me.kookaburra987.oldnorse.word.Preposition;
 
 import static java.util.Objects.requireNonNullElse;

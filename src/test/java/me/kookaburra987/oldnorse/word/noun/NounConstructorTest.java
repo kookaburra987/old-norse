@@ -1,6 +1,5 @@
 package me.kookaburra987.oldnorse.word.noun;
 
-import me.kookaburra987.oldnorse.word.Noun;
 import org.junit.jupiter.api.Test;
 
 import static me.kookaburra987.oldnorse.DeclensionType.STRONG;
@@ -12,7 +11,7 @@ class NounConstructorTest {
 
     @Test
     void givenValidParametersConstructsNoun(){
-        Noun noun = new Noun("Bárðr", M, STRONG, true, false, false);
+        Noun noun = new Noun("Bárðr", M, STRONG, true, null);
 
         assertNotNull(noun);
         assertEquals("Bárðr", noun.getLatinNotation());

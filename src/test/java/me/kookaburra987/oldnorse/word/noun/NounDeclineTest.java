@@ -1,7 +1,6 @@
 package me.kookaburra987.oldnorse.word.noun;
 
 
-import me.kookaburra987.oldnorse.word.Noun;
 import org.junit.jupiter.api.Test;
 
 import static me.kookaburra987.oldnorse.Case.*;
@@ -115,7 +114,8 @@ class NounDeclineTest {
     //test for the word: vík
     @Test
     void givenNounVikDeclines(){
-        Noun noun = new Noun("vík", F, STRONG, false, true, true);
+        NounIrregularity irregularity = new NounIrregularity(true, true);
+        Noun noun = new Noun("vík", F, STRONG, false, irregularity);
 
         String[] expectations = {"vík", "vík", "vík", "víkr", "víkr", "víkr", "víkum", "víka"};
         testDeclension(noun, expectations);
@@ -124,7 +124,7 @@ class NounDeclineTest {
     //test for the word: hlíð
     @Test
     void givenNounHlidDeclines(){
-        Noun noun = new Noun("hlíð", F, STRONG, false, false, false);
+        Noun noun = new Noun("hlíð", F, STRONG, false, null);
 
         String[] expectations = {"hlíð", "hlíð", "hlíð", "hlíðar", "hlíðir", "hlíðir", "hlíðum", "hlíða"};
         testDeclension(noun, expectations);
