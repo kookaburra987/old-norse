@@ -121,6 +121,15 @@ class NounDeclineTest {
         testDeclension(noun, expectations);
     }
 
+    //test for the word: hlíð
+    @Test
+    void givenNounHlidDeclines(){
+        Noun noun = new Noun("hlíð", F, STRONG, false, false, false);
+
+        String[] expectations = {"hlíð", "hlíð", "hlíð", "hlíðar", "hlíðir", "hlíðir", "hlíðum", "hlíða"};
+        testDeclension(noun, expectations);
+    }
+
     /**
      * Tests the declension for a specific noun.
      * @param noun for which declining has to be tested
