@@ -12,7 +12,7 @@ class NounStemTest {
 
     @Test
     void givenMasculineWordReturnsStem(){
-        Noun noun = new Noun("Bárðr", M, STRONG, true);
+        Noun noun = new Noun("Bárðr", M, STRONG, true, false, false);
 
         String stem = noun.stem();
 
@@ -21,7 +21,7 @@ class NounStemTest {
 
     @Test
     void givenFeminineWordReturnsStem(){
-        Noun noun = new Noun("Helga", F, STRONG, true);
+        Noun noun = new Noun("Helga", F, STRONG, true, false, false);
 
         String stem = noun.stem();
 

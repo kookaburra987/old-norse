@@ -7,8 +7,6 @@ import me.kookaburra987.oldnorse.Gender;
 import me.kookaburra987.oldnorse.Number;
 import me.kookaburra987.oldnorse.utils.NounEndingMapper;
 
-import java.util.PrimitiveIterator;
-
 import static me.kookaburra987.oldnorse.DeclensionType.STRONG;
 import static me.kookaburra987.oldnorse.DeclensionType.WEAK;
 import static me.kookaburra987.oldnorse.utils.Assert.notNull;
@@ -23,14 +21,19 @@ public final class Noun extends Word{
     private final Gender gender;
     private final DeclensionType declensionType;
     private final boolean personalName;
+    private final boolean uncommonSgGen;
+    private final boolean uncommonPlNomAcc;
 
     /**
      * Constructor for making a Noun object.
      * @param latinNotation notation in latin characters (not runes)
      * @param gender masculine, feminine or neuter
      * @param declensionType strong or weak
+     * @param personalName is it a name of a person
+     * @param uncommonSgGen is Sg Gen of the noun uncommon (-ar for masculine, -r for feminine)
+     * @param uncommonPlNomAcc is Pl Nom and Acc of the noun uncommon (-r for strong feminine)
      */
-    public Noun(String latinNotation, Gender gender, DeclensionType declensionType, boolean personalName){
+    public Noun(String latinNotation, Gender gender, DeclensionType declensionType, boolean personalName, boolean uncommonSgGen, boolean uncommonPlNomAcc){
         super(latinNotation);
         notNull(gender, "gender is null");
         notNull(declensionType, "declensionType is null");
@@ -38,6 +41,8 @@ public final class Noun extends Word{
         this.gender = gender;
         this.declensionType = declensionType;
         this.personalName = personalName;
+        this.uncommonSgGen = uncommonSgGen;
+        this.uncommonPlNomAcc = uncommonPlNomAcc;
     }
 
     /**
@@ -47,7 +52,7 @@ public final class Noun extends Word{
      * @param declensionType strong or weak
      */
     public Noun(String latinNotation, Gender gender, DeclensionType declensionType){
-        this(latinNotation, gender, declensionType, false);
+        this(latinNotation, gender, declensionType, false, false, false);
     }
 
     /**
@@ -72,7 +77,7 @@ public final class Noun extends Word{
             return stem() + ending;
         }
         if (declensionType.equals(STRONG)){
-            String ending = NounEndingMapper.endingOfStrongNoun(c, gender, number);
+            String ending = NounEndingMapper.endingOfStrongNoun(c, gender, number, uncommonSgGen, uncommonPlNomAcc);
             return stem() + ending;
         }
         return null;

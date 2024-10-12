@@ -27,12 +27,40 @@ public final class NounEndingMapper {
         return null;
     }
 
-    public static String endingOfStrongNoun(Case c, Gender gender, Number number) {
+    public static String endingOfStrongNoun(Case c, Gender gender, Number number, boolean uncommonSgGen, boolean uncommonPlNomAcc) {
         if (gender.equals(N)){
             return endingOfStrongNeuterNoun(c, number);
         }
+        if (gender.equals(F)){
+            return endingOfStrongFeminineNoun(c, number, uncommonSgGen, uncommonPlNomAcc);
+        }
 
         return null;
+    }
+
+    private static String endingOfStrongFeminineNoun(Case c, Number number, boolean uncommonSgGen, boolean uncommonPlNomAcc) {
+        if (number.isMultiple()){
+            return endingOfStrongPlFeminineNoun(c, uncommonPlNomAcc);
+        } else {
+            return endingOfStrongSgFeminineNoun(c, uncommonSgGen);
+        }
+    }
+
+    private static String endingOfStrongSgFeminineNoun(Case c, boolean uncommonSgGen) {
+        if (!Case.GEN.equals(c)){
+            return "";
+        }
+        return uncommonSgGen ? "r" : "ar";
+    }
+
+    private static String endingOfStrongPlFeminineNoun(Case c, boolean uncommonPlNomAcc) {
+        if (Case.DAT.equals(c)){
+            return "um";
+        }
+        if (Case.GEN.equals(c)){
+            return "a";
+        }
+        return uncommonPlNomAcc ? "r" : "ir";
     }
 
     private static String endingOfStrongNeuterNoun(Case c, Number number) {

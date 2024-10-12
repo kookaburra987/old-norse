@@ -85,12 +85,39 @@ class NounDeclineTest {
         testDeclension(noun, expectations);
     }
 
-    //test for the word:
+    //test for the word: þing
     @Test
     void givenNounThingDeclines(){
         Noun noun = new Noun("þing", N, STRONG);
 
         String[] expectations = {"þing", "þing", "þingi", "þings", "þing", "þing", "þingum", "þinga"};
+        testDeclension(noun, expectations);
+    }
+
+    //test for the word: ferð
+    @Test
+    void givenStrongFeminineNounDeclines(){
+        Noun noun = new Noun("ferð", F, STRONG);
+
+        String[] expectations = {"ferð", "ferð", "ferð", "ferðar", "ferðir", "ferðir", "ferðum", "ferða"};
+        testDeclension(noun, expectations);
+    }
+
+    //test for the word: leið
+    @Test
+    void givenNounLeidDeclines(){
+        Noun noun = new Noun("leið", F, STRONG);
+
+        String[] expectations = {"leið", "leið", "leið", "leiðar", "leiðir", "leiðir", "leiðum", "leiða"};
+        testDeclension(noun, expectations);
+    }
+
+    //test for the word: vík
+    @Test
+    void givenNounVikDeclines(){
+        Noun noun = new Noun("vík", F, STRONG, false, true, true);
+
+        String[] expectations = {"vík", "vík", "vík", "víkr", "víkr", "víkr", "víkum", "víka"};
         testDeclension(noun, expectations);
     }
 

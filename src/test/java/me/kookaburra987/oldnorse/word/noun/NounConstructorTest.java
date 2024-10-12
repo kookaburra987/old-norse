@@ -12,7 +12,7 @@ class NounConstructorTest {
 
     @Test
     void givenValidParametersConstructsNoun(){
-        Noun noun = new Noun("Bárðr", M, STRONG, true);
+        Noun noun = new Noun("Bárðr", M, STRONG, true, false, false);
 
         assertNotNull(noun);
         assertEquals("Bárðr", noun.getLatinNotation());
