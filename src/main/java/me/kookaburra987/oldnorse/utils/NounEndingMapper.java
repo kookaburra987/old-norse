@@ -27,6 +27,38 @@ public final class NounEndingMapper {
         return null;
     }
 
+    public static String endingOfStrongNoun(Case c, Gender gender, Number number) {
+        if (gender.equals(N)){
+            return endingOfStrongNeuterNoun(c, number);
+        }
+
+        return null;
+    }
+
+    private static String endingOfStrongNeuterNoun(Case c, Number number) {
+        if (number.isMultiple()){
+            return endingOfStrongPlNeuterNoun(c);
+        } else {
+            return endingOfStrongSgNeuterNoun(c);
+        }
+    }
+
+    private static String endingOfStrongSgNeuterNoun(Case c) {
+        return switch (c) {
+            case DAT -> "i";
+            case GEN -> "s";
+            default -> "";
+        };
+    }
+
+    private static String endingOfStrongPlNeuterNoun(Case c) {
+        return switch (c){
+            case DAT -> "um";
+            case GEN -> "a";
+            default -> "";
+        };
+    }
+
     public static String endingOfNeuterNoun(Case c, Number number) {
         if (number.isMultiple()){
             return endingOfNeuterPlNoun(c);
@@ -85,4 +117,6 @@ public final class NounEndingMapper {
         }
         return "a";
     }
+
+
 }

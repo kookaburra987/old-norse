@@ -11,6 +11,7 @@ This is a java library for the Old Norse (ON) language.
 * create a noun with gender, declensionType and latinNotation
 * determine the stem of a noun
 * decline weak nouns
+* decline strong neuter nouns (umlaut not supported yet)
 
 ### Personal Pronouns
 * create personal pronouns
@@ -40,7 +41,6 @@ This is a java library for the Old Norse (ON) language.
 * list of strong nouns
 * decline strong masculine nouns
 * decline strong feminine nouns
-* decline strong neuter nouns
 
 ### Personal Pronouns
 * decline all personal pronouns

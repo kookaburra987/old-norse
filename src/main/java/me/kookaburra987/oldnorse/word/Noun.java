@@ -7,6 +7,9 @@ import me.kookaburra987.oldnorse.Gender;
 import me.kookaburra987.oldnorse.Number;
 import me.kookaburra987.oldnorse.utils.NounEndingMapper;
 
+import java.util.PrimitiveIterator;
+
+import static me.kookaburra987.oldnorse.DeclensionType.STRONG;
 import static me.kookaburra987.oldnorse.DeclensionType.WEAK;
 import static me.kookaburra987.oldnorse.utils.Assert.notNull;
 
@@ -19,6 +22,7 @@ public final class Noun extends Word{
 
     private final Gender gender;
     private final DeclensionType declensionType;
+    private final boolean personalName;
 
     /**
      * Constructor for making a Noun object.
@@ -26,13 +30,24 @@ public final class Noun extends Word{
      * @param gender masculine, feminine or neuter
      * @param declensionType strong or weak
      */
-    public Noun(String latinNotation, Gender gender, DeclensionType declensionType){
+    public Noun(String latinNotation, Gender gender, DeclensionType declensionType, boolean personalName){
         super(latinNotation);
         notNull(gender, "gender is null");
         notNull(declensionType, "declensionType is null");
 
         this.gender = gender;
         this.declensionType = declensionType;
+        this.personalName = personalName;
+    }
+
+    /**
+     * Constructor for making a Noun object that is not a personal name.
+     * @param latinNotation notation in latin characters (not runes)
+     * @param gender masculine, feminine or neuter
+     * @param declensionType strong or weak
+     */
+    public Noun(String latinNotation, Gender gender, DeclensionType declensionType){
+        this(latinNotation, gender, declensionType, false);
     }
 
     /**
@@ -41,8 +56,11 @@ public final class Noun extends Word{
      * @return the stem of the word
      */
     public String stem() {
-        String latinNotation = getLatinNotation();
-        return latinNotation.substring(0, latinNotation.length() - 1);
+        if (declensionType == WEAK || Gender.M.equals(gender) || personalName){
+            String latinNotation = getLatinNotation();
+            return latinNotation.substring(0, latinNotation.length() - 1);
+        }
+        return getLatinNotation();
     }
 
     public String decline(Case c, Number number){
@@ -51,6 +69,10 @@ public final class Noun extends Word{
 
         if (declensionType.equals(WEAK)){
             String ending = NounEndingMapper.endingOfWeakNoun(c, gender, number);
+            return stem() + ending;
+        }
+        if (declensionType.equals(STRONG)){
+            String ending = NounEndingMapper.endingOfStrongNoun(c, gender, number);
             return stem() + ending;
         }
         return null;
