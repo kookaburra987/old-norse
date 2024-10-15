@@ -13,6 +13,7 @@ This is a java library for the Old Norse (ON) language.
 * decline weak nouns
 * decline strong neuter nouns (umlaut not supported yet)
 * decline strong feminine nouns (umlaut not supported yet)
+* default list of nouns
 
 ### Personal Pronouns
 * create personal pronouns
@@ -38,8 +39,6 @@ This is a java library for the Old Norse (ON) language.
 * export exercise of conjugating weak nouns based on their preposition
 
 ### Nouns
-* list of weak nouns
-* list of strong nouns
 * decline strong masculine nouns
 
 ### Personal Pronouns
